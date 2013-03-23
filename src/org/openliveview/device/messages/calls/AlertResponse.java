@@ -7,7 +7,7 @@ import org.openliveview.device.messages.AbstractCall;
 import org.openliveview.device.messages.MessageConstants;
 import org.openliveview.util.UShort;
 
-public class GetAlertResponse extends AbstractCall {
+public class AlertResponse extends AbstractCall {
 
     private byte[] image;
     private String timestampText;
@@ -17,7 +17,7 @@ public class GetAlertResponse extends AbstractCall {
     private final UShort unreadCount;
     private final UShort alertIndex;
 
-    public GetAlertResponse(int totalcount, int unreadcount, int alertindex, String timestamptext, String headertext, String bodytext, byte[] image) {
+    public AlertResponse(int totalcount, int unreadcount, int alertindex, String timestamptext, String headertext, String bodytext, byte[] image) {
         super(MessageConstants.MSG_GETALERT_RESP);
         this.image = image;
         this.timestampText = timestamptext;

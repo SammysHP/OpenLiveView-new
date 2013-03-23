@@ -7,17 +7,17 @@ import java.io.InputStream;
 import org.openliveview.device.messages.AbstractEvent;
 import org.openliveview.device.messages.MessageConstants;
 import org.openliveview.device.messages.calls.DeviceStatusAck;
-import org.openliveview.device.messages.calls.GetAlertResponse;
-import org.openliveview.device.messages.calls.GetTimeResponse;
+import org.openliveview.device.messages.calls.AlertResponse;
+import org.openliveview.device.messages.calls.TimeResponse;
 import org.openliveview.device.messages.calls.MenuItem;
 import org.openliveview.device.messages.calls.NavigationResponse;
 import org.openliveview.device.messages.calls.SetMenuSettings;
 import org.openliveview.device.messages.calls.SetMenuSize;
-import org.openliveview.device.messages.calls.SetVibrate;
-import org.openliveview.device.messages.events.CapsResponse;
+import org.openliveview.device.messages.calls.Vibrate;
+import org.openliveview.device.messages.events.Capabilities;
 import org.openliveview.device.messages.events.DeviceStatusChange;
 import org.openliveview.device.messages.events.DeviceStatusChange.DeviceStatus;
-import org.openliveview.device.messages.events.GetAlert;
+import org.openliveview.device.messages.events.AlertRequest;
 import org.openliveview.util.Log;
 import org.openliveview.util.UShort;
 
@@ -81,15 +81,15 @@ public class EventDispatcher {
          */
         switch (event.getId()) {
             case MessageConstants.MSG_GETCAPS_RESP:
-                final CapsResponse caps = (CapsResponse) event;
+                final Capabilities caps = (Capabilities) event;
                 // TODO: set menu
                 connection.sendCall(new SetMenuSettings(0, 0));
                 connection.sendCall(new SetMenuSize((byte) 1));
-                connection.sendCall(new SetVibrate(0, SetVibrate.NORMAL));
+                connection.sendCall(new Vibrate(0, Vibrate.NORMAL));
                 break;
 
             case MessageConstants.MSG_GETTIME:
-                connection.sendCall(new GetTimeResponse(true));
+                connection.sendCall(new TimeResponse(true));
                 break;
 
             case MessageConstants.MSG_DEVICESTATUS:
@@ -120,10 +120,10 @@ public class EventDispatcher {
                 break;
 
             case MessageConstants.MSG_GETALERT:
-                final GetAlert alert = (GetAlert) event;
+                final AlertRequest alert = (AlertRequest) event;
                 // TODO implement alerts
-                connection.sendCall(new SetVibrate(0, SetVibrate.NORMAL));
-                connection.sendCall(new GetAlertResponse(0, 0, 0, "", "No notifications", "", IMG_NOTIFICATION_GENERIC));
+                connection.sendCall(new Vibrate(0, Vibrate.NORMAL));
+                connection.sendCall(new AlertResponse(0, 0, 0, "", "No notifications", "", IMG_NOTIFICATION_GENERIC));
                 break;
 
             case MessageConstants.MSG_NAVIGATION:

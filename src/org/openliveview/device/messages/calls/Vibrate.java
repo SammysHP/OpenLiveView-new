@@ -7,7 +7,7 @@ import org.openliveview.device.messages.AbstractCall;
 import org.openliveview.device.messages.MessageConstants;
 import org.openliveview.util.UShort;
 
-public class SetVibrate extends AbstractCall {
+public class Vibrate extends AbstractCall {
 
     public static final int SHORT = 20;
     public static final int NORMAL = 50;
@@ -17,7 +17,7 @@ public class SetVibrate extends AbstractCall {
     private final UShort delay;
     private final UShort time;
 
-    public SetVibrate(int delay, int time) {
+    public Vibrate(int delay, int time) {
         super(MessageConstants.MSG_SETVIBRATE);
         this.delay = new UShort((short) delay);
         this.time = new UShort((short) time);

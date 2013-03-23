@@ -5,13 +5,13 @@ import java.nio.ByteBuffer;
 import org.openliveview.device.messages.AbstractEvent;
 import org.openliveview.device.messages.MessageConstants;
 
-public class GetAlert extends AbstractEvent {
+public class AlertRequest extends AbstractEvent {
 
     private byte menuItemId;
     private byte alertAction;
     private short maxBodySize;
 
-    public GetAlert() {
+    public AlertRequest() {
         super(MessageConstants.MSG_GETALERT);
     }
 

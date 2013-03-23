@@ -7,7 +7,7 @@ import org.openliveview.device.messages.AbstractEvent;
 import org.openliveview.device.messages.MessageConstants;
 import org.openliveview.util.UByte;
 
-public class CapsResponse extends AbstractEvent {
+public class Capabilities extends AbstractEvent {
 
     private UByte width;
     private UByte height;
@@ -109,7 +109,7 @@ public class CapsResponse extends AbstractEvent {
         this.softwareVersion = softwareVersion;
     }
 
-    public CapsResponse() {
+    public Capabilities() {
         super(MessageConstants.MSG_GETCAPS_RESP);
     }
 

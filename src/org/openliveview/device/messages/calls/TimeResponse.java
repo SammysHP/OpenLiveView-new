@@ -6,12 +6,12 @@ import java.util.Calendar;
 import org.openliveview.device.messages.AbstractCall;
 import org.openliveview.device.messages.MessageConstants;
 
-public class GetTimeResponse extends AbstractCall {
+public class TimeResponse extends AbstractCall {
 
     private int time;
     private byte mode;
 
-    public GetTimeResponse(boolean mode) {
+    public TimeResponse(boolean mode) {
         super(MessageConstants.MSG_GETTIME_RESP);
 
         this.time = (int) (Calendar.getInstance().getTimeInMillis() / 1000);

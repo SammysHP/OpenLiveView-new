@@ -67,7 +67,7 @@ public class LiveViewConnection extends Thread {
         final Notification notification = new NotificationCompat.Builder(service)
                 .setContentTitle(service.getString(R.string.liveview_connected))
                 .setContentText(service.getString(R.string.touch_for_configuration))
-                .setSmallIcon(R.drawable.ic_launcher)
+                .setSmallIcon(R.drawable.olv_icon)
                 .setContentIntent(preferencesIntent)
                 .setOngoing(true)
                 .setWhen(0)

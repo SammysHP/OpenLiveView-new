@@ -2,11 +2,9 @@ package org.openliveview.device.messages;
 
 import java.nio.ByteBuffer;
 
-import org.openliveview.device.messages.events.CapsResponse;
+import org.openliveview.device.messages.events.AlertRequest;
+import org.openliveview.device.messages.events.Capabilities;
 import org.openliveview.device.messages.events.DeviceStatusChange;
-import org.openliveview.device.messages.events.GetAlert;
-import org.openliveview.device.messages.events.GetMenuItems;
-import org.openliveview.device.messages.events.GetTime;
 import org.openliveview.device.messages.events.Navigation;
 import org.openliveview.device.messages.events.ResultEvent;
 
@@ -15,7 +13,7 @@ public final class MessageDecoder {
     private static AbstractEvent newInstanceForId(byte id) throws DecodeException {
         switch (id) {
             case MessageConstants.MSG_GETCAPS_RESP:
-                return new CapsResponse();
+                return new Capabilities();
             case MessageConstants.MSG_SETVIBRATE_ACK:
                 return new ResultEvent(id);
             case MessageConstants.MSG_CLEARDISPLAY_ACK:
@@ -29,11 +27,11 @@ public final class MessageDecoder {
             case MessageConstants.MSG_SETLED_ACK:
                 return new ResultEvent(id);
             case MessageConstants.MSG_GETTIME:
-                return new GetTime();
+                return new ResultEvent(id);
             case MessageConstants.MSG_GETMENUITEMS:
-                return new GetMenuItems();
+                return new ResultEvent(id);
             case MessageConstants.MSG_GETALERT:
-                return new GetAlert();
+                return new AlertRequest();
             case MessageConstants.MSG_DEVICESTATUS:
                 return new DeviceStatusChange();
             case MessageConstants.MSG_NAVIGATION:
