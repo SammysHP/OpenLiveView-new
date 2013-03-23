@@ -25,8 +25,8 @@ import android.content.Context;
 
 public class EventDispatcher {
 
-    private final byte[] IMG_MENU_NOTIFICATION;
-    private final byte[] IMG_ANNOUNCE_GENERIC;
+    private final byte[] IMG_MENU_NOTIFICATION_ALL;
+    private final byte[] IMG_NOTIFICATION_GENERIC;
 
     private final LiveViewConnection connection;
 
@@ -38,8 +38,8 @@ public class EventDispatcher {
         this.state = State.MENU; // after connection we're in the menu
         this.deviceStatus = DeviceStatus.UNKNOWN; // the device should be in ON-state, but we're not sure
 
-        IMG_MENU_NOTIFICATION = loadImageByteArray(connection.service, "menu_notification.png");
-        IMG_ANNOUNCE_GENERIC = loadImageByteArray(connection.service, "announce_generic.png");
+        IMG_MENU_NOTIFICATION_ALL = loadImageByteArray(connection.service, "menu_notification.png");
+        IMG_NOTIFICATION_GENERIC = loadImageByteArray(connection.service, "notification_generic.png");
     }
 
     public void dispatchEvent(final AbstractEvent event) throws IOException {
@@ -116,14 +116,14 @@ public class EventDispatcher {
 
             case MessageConstants.MSG_GETMENUITEMS:
                 // TODO send menu items
-                connection.sendCall(new MenuItem((byte) 0, true, new UShort((short) 0), "All notifications", IMG_MENU_NOTIFICATION));
+                connection.sendCall(new MenuItem((byte) 0, true, new UShort((short) 0), "All notifications", IMG_MENU_NOTIFICATION_ALL));
                 break;
 
             case MessageConstants.MSG_GETALERT:
                 final GetAlert alert = (GetAlert) event;
                 // TODO implement alerts
                 connection.sendCall(new SetVibrate(0, SetVibrate.NORMAL));
-                connection.sendCall(new GetAlertResponse(0, 0, 0, "", "No notifications", "", IMG_ANNOUNCE_GENERIC));
+                connection.sendCall(new GetAlertResponse(0, 0, 0, "", "No notifications", "", IMG_NOTIFICATION_GENERIC));
                 break;
 
             case MessageConstants.MSG_NAVIGATION:
