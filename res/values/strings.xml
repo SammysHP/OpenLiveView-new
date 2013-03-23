@@ -1,5 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
-
     <string name="app_name">OpenLiveView</string>
-
+    
+    <string name="device_not_configured">No LiveView device configured! Please configure OLV by opening the app.</string>
+    <string name="liveview_connected">LiveView connected</string>
+    <string name="touch_for_configuration">Touch for configuration</string>
+    
+    <string name="prefs_title">OpenLiveView settings</string>
+    <string name="prefs_cat_device_title">Device</string>
+    <string name="prefs_deviceaddress_title">LiveView device</string>
+    <string name="prefs_deviceaddress_summary">Select your LiveView device from the list of paired Bluetooth devices.</string>
+    <string name="prefs_clockmode_title">Clock mode</string>
+    <string name="prefs_clockmode_12h">Clock will display in 12 hour mode.</string>
+    <string name="prefs_clockmode_24h">Clock will display in 24 hour mode.</string>
+    
+    <string name="prefkeys_device_address" translatable="false">device_address</string>
+    <string name="prefkeys_menu_updown_action" translatable="false">menu_updown_action</string>
+    <string name="prefkeys_clockmode" translatable="false">clockmode</string>
 </resources>

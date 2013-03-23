@@ -21,6 +21,31 @@
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name" >
+
+        <activity
+            android:name="org.openliveview.gui.LiveViewPreferences"
+            android:label="@string/prefs_title"
+            android:launchMode="singleInstance" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        
+        <service
+            android:name="org.openliveview.device.LiveViewService"
+            android:exported="false" />
+
+        <receiver
+            android:name="org.openliveview.device.BTReceiver"
+            android:exported="true" >
+            <intent-filter>
+                <action android:name="android.bluetooth.device.action.ACL_CONNECTED" />
+                <action android:name="android.bluetooth.device.action.ACL_DISCONNECTED" />
+                <action android:name="android.bluetooth.device.action.ACL_DISCONNECT_REQUESTED" />
+            </intent-filter>
+        </receiver>
+
     </application>
 
 </manifest>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <PreferenceCategory android:title="@string/prefs_cat_device_title" >
+        <ListPreference
+            android:key="@string/prefkeys_device_address"
+            android:summary="@string/prefs_deviceaddress_summary"
+            android:title="@string/prefs_deviceaddress_title" />
+        
+        <!-- <ListPreference
+            android:defaultValue="1"
+            android:entries="@array/settings_updown_actions_name"
+            android:entryValues="@array/settings_updown_actions_value"
+            android:key="@string/prefkeys_menu_updown_action"
+            android:summary="@string/prefs_menu_updown_action_summary"
+            android:title="@string/prefs_menu_updown_action_title" /> -->
+
+        <CheckBoxPreference
+            android:disableDependentsState="false"
+            android:key="@string/prefkeys_clockmode"
+            android:summaryOff="@string/prefs_clockmode_12h"
+            android:summaryOn="@string/prefs_clockmode_24h"
+            android:title="@string/prefs_clockmode_title" />
+    </PreferenceCategory>
+
+</PreferenceScreen>
