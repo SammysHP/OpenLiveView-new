@@ -6,18 +6,18 @@ import java.io.InputStream;
 
 import org.openliveview.device.messages.AbstractEvent;
 import org.openliveview.device.messages.MessageConstants;
-import org.openliveview.device.messages.calls.DeviceStatusAck;
 import org.openliveview.device.messages.calls.AlertResponse;
-import org.openliveview.device.messages.calls.TimeResponse;
+import org.openliveview.device.messages.calls.DeviceStatusAck;
 import org.openliveview.device.messages.calls.MenuItem;
 import org.openliveview.device.messages.calls.NavigationResponse;
 import org.openliveview.device.messages.calls.SetMenuSettings;
 import org.openliveview.device.messages.calls.SetMenuSize;
+import org.openliveview.device.messages.calls.TimeResponse;
 import org.openliveview.device.messages.calls.Vibrate;
+import org.openliveview.device.messages.events.AlertRequest;
 import org.openliveview.device.messages.events.Capabilities;
 import org.openliveview.device.messages.events.DeviceStatusChange;
 import org.openliveview.device.messages.events.DeviceStatusChange.DeviceStatus;
-import org.openliveview.device.messages.events.AlertRequest;
 import org.openliveview.util.Log;
 import org.openliveview.util.UShort;
 
@@ -99,17 +99,8 @@ public class EventDispatcher {
                 break;
 
             case MessageConstants.MSG_SETVIBRATE_ACK:
-                // nothing
-                break;
-
             case MessageConstants.MSG_SETLED_ACK:
-                // nothing
-                break;
-
             case MessageConstants.MSG_DISPLAYBITMAP_ACK:
-                // nothing
-                break;
-
             case MessageConstants.MSG_DISPLAYPANEL_ACK:
                 // nothing
                 break;
